@@ -61,6 +61,7 @@ void GPS_NMEA_Class::Init(void)
 // This code don´t wait for data, only proccess the data available on serial port
 // We can call this function on the main loop (50Hz loop)
 // If we get a complete packet this function call parse_nmea_gps() to parse and update the GPS info.
+#ifdef ONE_BYTE_PARSE_AND_SEND
 void GPS_NMEA_Class::Read(void)
 {
   if (Serial.available() > 0)
@@ -89,6 +90,41 @@ void GPS_NMEA_Class::Read(void)
     }
   }
 }
+#else
+void GPS_NMEA_Class::Read(void)
+{
+  char c;
+  int numc;
+  int i;
+	numc = Serial.available();
+  if (numc > 0)
+    for (i=0;i<numc;i++){
+	  c = Serial.read();
+      if (c == '$'){                      // NMEA Start
+        bufferidx = 0;
+        buffer[bufferidx++] = c;
+        GPS_checksum = 0;
+        GPS_checksum_calc = true;
+        continue;
+        }
+      if (c == '\r'){                     // NMEA End
+        buffer[bufferidx++] = 0;
+		    parse_nmea_gps();
+        }
+      else {
+        if (bufferidx < (GPS_BUFFERSIZE-1)){
+          if (c == '*')
+            GPS_checksum_calc = false;    // Checksum calculation end
+          buffer[bufferidx++] = c;
+          if (GPS_checksum_calc)
+            GPS_checksum ^= c;            // XOR 
+          }
+		else
+		  bufferidx=0;   // Buffer overflow : restart
+        }
+    }   
+}
+#endif
 
 /****************************************************************
  * 

@@ -53,8 +53,8 @@ Metro loopDebug = Metro(500);
 #endif
 //#################################### SETUP LOOP ####################################################
 
-int32_t lastmicros = 0;
 bool gps_ready = false;
+bool isSending = false;
 bool led = false;
 
 void setup()
@@ -74,7 +74,6 @@ void setup()
   digitalWrite(LED_GPS_PIN, LOW);
   digitalWrite(LED_OUT_PIN, LOW);
 
-  lastmicros = 0;
   gps_ready = false;
 }
 
@@ -85,7 +84,7 @@ void loop()
 
   //LED Controller
   if (loop50hz.check()) {
-    if (led && gps_ready) digitalWrite(LED_GPS_PIN, HIGH);
+    if (led && (gps_ready || isSending)) digitalWrite(LED_GPS_PIN, HIGH);
     else digitalWrite(LED_GPS_PIN, LOW);
 
     led = !led;
@@ -98,14 +97,24 @@ void loop()
   }
 #endif
 
-  if ((micros() - lastmicros) > softserial_delay && send()) {
-    lastmicros = micros();
-    if (loop10hz.check() && gps_read) {
+#ifdef ONE_BYTE_PARSE_AND_SEND
+  if (send()) {
+    isSending = false;
+    if (loop10hz.check() && gps_ready) {
       LTM();
       gps_ready = false;
+      isSending = true;
       frame_timer = millis();
     }
   }
+#else
+  if (loop10hz.check() && gps_ready) {
+    LTM();
+    gps_ready = false;
+    frame_timer = millis();
+    while (!send()) { }
+  }
+#endif
 }
 
 //######################################## TELEMETRY FUNCTIONS #############################################

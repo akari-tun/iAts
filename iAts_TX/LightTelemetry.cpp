@@ -22,10 +22,13 @@ uint8_t LTBuff[LTM_BUFFER_SIZE];
 uint8_t SendLen = 0;
 uint8_t SendIndex = 0;
 uint8_t LTCrc = 0;
+int32_t lastmicros = 0;
 
 static bool send() 
 {
     if (SendIndex >= SendLen) return true;
+    if ((micros() - lastmicros) < softserial_delay) return false;
+    
     if (SerialPort2.write(LTBuff[SendIndex]) == 0) {
 		//buffer is full, flush & retry.
 		SerialPort2.flush();
@@ -36,6 +39,7 @@ static bool send()
 	}
 	else {
 		SendIndex += 1;
+        lastmicros = micros();
 	}
 
     return SendIndex >= SendLen;
