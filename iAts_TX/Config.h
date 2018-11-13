@@ -37,5 +37,5 @@
 //OUTOPUT BAUDRATE
 #define OUTPUT_BAUD 1200   //output bps
 
-#define ONE_BYTE_PARSE_AND_SEND
+//#define ONE_BYTE_PARSE_AND_SEND
 //#define DEBUG

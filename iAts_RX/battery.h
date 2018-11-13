@@ -1,0 +1,10 @@
+#ifndef BATTERY_H
+#define BATTERY_H
+
+#define BATTERYMONITORING_AVERAGE 3
+#define BATTERYMONITORING_VREF 12
+#define BATTERYMONITORING_VREF_SOURCE DEFAULT 
+
+void getBatVoltage(uint16_t *voltage);
+
+#endif
