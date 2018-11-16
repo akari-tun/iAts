@@ -18,6 +18,10 @@ Arduino自动跟踪云台
   
 APP正在完善，代码暂时未上传。。。
 
+#### 成品展示
+
+<iframe src="//player.bilibili.com/player.html?aid=31897946&cid=55789384&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 #### 安装教程
 
 
