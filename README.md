@@ -31,8 +31,18 @@ Arduino自动跟踪云台
   
 ## 成品展示
 
-#### 发射机
+#### 硬件电路部
 
+##### 接收端原理图
+![Schematic_diagram_RX](PCB/Schematic_diagram_RX.png?raw=true "Schematic_diagram_RX")
+  
+##### 发射端原理图
+![Schematic_diagram_TX](PCB/Schematic_diagram_TX.png?raw=true "Schematic_diagram_TX")
+  
+##### 打样回来的PCB
+<img src="docs/images/PCB.png?raw=true" width="640" height="480" alt="PCB">
+  
+##### 发射机
 焊好的发射端，由于使用5V供电，所以电源部分可以不需要焊了
 
 <img src="docs/images/TX_Image1.png?raw=true" width="640" height="480" alt="TX">
@@ -114,22 +124,12 @@ HMC5883L磁力计用于测量指向的角度，通过融合MPU6050的加速度�
 ##### APP截图
 APP跟踪界面截图，可以看到飞机位置，经纬度，高度，距离，速度，AAT的电压，指向角度，俯仰角度
 
-![APP](docs/images/APP_Image1.jpg?raw=true "APP")
+![APP](docs/images/APP_Image1.png?raw=true "APP")
 
 #### 视频：<Br/>
 - [模拟测试](https://www.bilibili.com/video/av31897946/) <Br/>
 - [上飞机实测](https://www.bilibili.com/video/av33431415/)
 
 ## 安装教程
-
-  #### 接收端原理图
-  ![Schematic_diagram_RX](PCB/Schematic_diagram_RX.png?raw=true "Schematic_diagram_RX")
-  
-  #### 发射端原理图
-  ![Schematic_diagram_TX](PCB/Schematic_diagram_TX.png?raw=true "Schematic_diagram_TX")
-  
-   #### 打样回来的PCB
-  ![PCB](docs/images/PCB.png?raw=true "PCB")
-  
 
 ## 使用说明
