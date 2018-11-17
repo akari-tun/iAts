@@ -32,10 +32,17 @@ Arduino自动跟踪云台
 ## 成品展示
 
 #### 图片：<Br/>
-![PCB](doc/image/PCB.png?raw=true "PCB")
-![RX](doc/image/RX_Image1.png?raw=true "RX")
-![成品](doc/image/AAT_Image1.png?raw=true "成品")
-![APP](doc/image/APP_Image1.jpg?raw=true "APP")
+打样回来的PCB，发射端跟接收端。
+![PCB](docs/images/PCB.png?raw=true "PCB")
+
+焊好的发射端，由于使用5V供电，所以电源部分可以不需要焊了
+![RX](docs/images/RX_Image1.png?raw=true "RX")
+
+正在测试的成品，用的是枫叶大平板，由于比较重，有点抖。
+![成品](docs/images/AAT_Image1.png?raw=true "成品")
+
+APP跟踪界面截图，可以看到飞机位置，经纬度，高度，距离，速度，AAT的电压，指向角度，俯仰角度
+![APP](docs/images/APP_Image1.jpg?raw=true "APP")
 
 #### 视频：<Br/>
 - [模拟测试](https://www.bilibili.com/video/av31897946/) <Br/>
