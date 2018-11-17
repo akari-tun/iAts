@@ -19,7 +19,7 @@ Arduino自动跟踪云台
 
 - 低成本，基于328p芯片运行，可以直接使用[MWC MultiWii SE v2.6](https://s.taobao.com/search?q=MWC+MultiWii+SE+v2.6&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20181117&ie=utf8)飞控板，或是使用[Arduino Pro Mini](https://store.arduino.cc/usa/arduino-pro-mini)+[HMC5883模块](https://s.taobao.com/search?q=HMC5883L&commend=all&ssid=s5-e&search_type=mall&sourceId=tb.index&area=c2c&spm=a1z02.1.6856637.d4910789)/[QMC5883模块](https://s.taobao.com/search?q=QMC5883&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20181116&ie=utf8)+[MPU6050模块](https://s.taobao.com/search?q=MPU6050&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20181116&ie=utf8)进行构建。
 - 云台的运动使用舵机驱动，水平方向使用360°舵机，俯仰方向使用180°或90°舵机，低成本的舵机可以使用[MG995](https://item.taobao.com/item.htm?spm=a230r.1.14.20.24c52706K8ff73&id=45136514387&ns=1&abbucket=11#detail)，它有360°版本与180°版本。
-- [OLED](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-15846751795.28.57594e5cFUP7UZ&id=524527857468)屏幕显示数据，可以显示飞机坐标，速度，GPS星树，本地位置，值向等数据。
+- [OLED](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-15846751795.28.57594e5cFUP7UZ&id=524527857468)屏幕显示数据，可以显示飞机坐标，速度，GPS星数，本地位置，方向等数据。
 - 开发了手机APP进行调参与监控，可以在APP的地图中显示飞机的位置。
 - 发射端可以支持NMEA协议与MAVLink协议，输出标准的LTM协议与地面端通信。
 - 使用图传的音频通道传输数据到地面端，地面端与发射端都使用[TCM3105芯片](https://s.taobao.com/search?q=TCM3105&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20181117&ie=utf8)进行数模转换。
