@@ -25,7 +25,7 @@ bool gps_read()
         uav_alt = GPS.Altitude; //in cm
 #endif
 #endif
-        uav_groundspeed = (uint8_t)round(GPS.Ground_Speed / 10.0f); // in m/s
+        uav_groundspeed = (uint8_t)round(GPS.Ground_Speed / 100.0f); // in m/s
         //uav_groundspeed = GPS.Ground_Speed; 
         uav_heading = (int16_t)round(GPS.Ground_Course / 100.0f);    // in deg
         //uav_heading = GPS.Ground_Course;

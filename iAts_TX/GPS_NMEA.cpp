@@ -204,7 +204,7 @@ void GPS_NMEA_Class::parse_nmea_gps(void)
       if (GPS_checksum == NMEA_check)
       { // Checksum validation
         parseptr = strchr(buffer, ',') + 1;
-        Ground_Course = parsenumber(parseptr, 2) * 10; // Ground course in degrees * 100
+        Ground_Course = parsenumber(parseptr, 2); // Ground course in degrees * 100
         parseptr = strchr(parseptr, ',') + 1;
         parseptr = strchr(parseptr, ',') + 1;
         parseptr = strchr(parseptr, ',') + 1;
@@ -278,8 +278,11 @@ long GPS_NMEA_Class::parsenumber(char *str, byte numdec)
     }
     else
     {
-      if ((str[0] > '9') || (str[0] < '0'))
-        return d;
+      if ((str[0] > '9') || (str[0] < '0')) {
+          if (ndec <= numdec) d *= pow(10, ((numdec - ndec) + 1));
+          return d;
+      }
+
       d *= 10;
       d += str[0] - '0';
       if (ndec > 0)
@@ -289,6 +292,7 @@ long GPS_NMEA_Class::parsenumber(char *str, byte numdec)
     }
     str++;
   }
+
   return d;
 }
 
