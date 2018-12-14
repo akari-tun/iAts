@@ -15,9 +15,11 @@ Arduino自动跟踪云台
 4. 与手机APP通讯，将飞机位置数据通过APP传到手机（使用自定义TLV格式的协议）
 5. 手机APP上显示飞机的位置
 
-## APP项目地址
+## APP
 
-[iAts_app](https://github.com/akari-tun/iAts_app)
+[iAts_app](https://github.com/akari-tun/iAts_app) 可以对云台进行调参与跟踪飞机位置。
+
+发布版本：
 [release v1.0.0-perview](https://github.com/akari-tun/iAts_app/releases/download/1.0.0-perview/iAts_app_V1.0.0-perview.apk)
 ## 特点
 
