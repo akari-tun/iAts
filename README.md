@@ -17,7 +17,7 @@ Arduino自动跟踪云台
 
 ## APP项目地址
 
-[iAts_app](https://github.com/akari-tun/iAts_app?
+[iAts_app](https://github.com/akari-tun/iAts_app)
 [release v1.0.0-perview](https://github.com/akari-tun/iAts_app/releases/download/1.0.0-perview/iAts_app_V1.0.0-perview.apk)
 ## 特点
 
