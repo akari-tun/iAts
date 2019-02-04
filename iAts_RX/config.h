@@ -6,8 +6,8 @@
 //#define DEBUG
 //#define TELEMETRY_DEBUG
 
-#define BLUETOOTH_SERIAL_BAUDRATE 9600         //蓝牙信号串口波特率
-#define DIGITAL_SERIAL_BAUDRATE 1200           //数字信号串口波特率
+#define PHYSICAL_SERIAL_BAUDRATE 57600         // 物理串口--链接蓝牙模块 
+#define DIGITAL_SERIAL_BAUDRATE 1200           // 软串口--接收AD转换后的数字信号
 
 /* #### 罗盘类型 ####
  *
@@ -16,8 +16,8 @@
  *  网上QMC5883L的资料很少，所幸找到了芯片手册跟QMC5883L与HMC5883L的寄存器对比参考，按照手册与对比参考，撸了一遍QMC5883L读取地磁数据的代码
  *  
  */
-#define COMPASS_HMC5983L
-//#define COMPASS_QMC5883L
+//#define COMPASS_HMC5983L
+#define COMPASS_QMC5883L
 
 /* 
 	#### 打开使用kalman滤波 ####
@@ -30,7 +30,7 @@
  *  用电阻串联可以将电压分散，两个阻值一样的电阻串联，则每个电阻两端的电压为总电压的一半，那么一大一小两个电阻串联，小电阻两端电压 = （V*(R2/R1))
  *  
  */
-#define BATTERYMONITORING_RESISTOR_1 4000   //分压电阻1
+#define BATTERYMONITORING_RESISTOR_1 2100   //分压电阻1
 #define BATTERYMONITORING_RESISTOR_2 1000   //分压电阻2
 #define BATTERYMONITORING_CORRECTION 1.03    //修正值
 

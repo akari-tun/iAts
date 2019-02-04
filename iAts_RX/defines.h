@@ -12,6 +12,7 @@
 #define LED_DIGITAL_PIN     13
 #define LED_SERIAL_PIN      2
 #define LED_ENCODE_PIN      4
+#define EN_33V_PIN          6
 
 #define PARAM_EPPROM_POS  	6
 #define PARAM_EPPROM_POS_PID_P  	              PARAM_EPPROM_POS + 0

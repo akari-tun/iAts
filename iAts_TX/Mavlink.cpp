@@ -150,7 +150,8 @@ void read_mavlink(){
                     //Serial.println("MAVLINK_MSG_ID_ATTITUDE");
                     uav_roll = (int16_t)round(toDeg(mavlink_msg_attitude_get_roll(&msg)));
                     uav_pitch = (int16_t)round(toDeg(mavlink_msg_attitude_get_pitch(&msg)));
-                    uav_heading = (int16_t)round(toDeg(mavlink_msg_attitude_get_yaw(&msg) * 10.0f));
+                    //uav_heading = (int16_t)round(toDeg(mavlink_msg_attitude_get_yaw(&msg) * 10.0f));
+                    uav_heading = (int16_t)round(toDeg(mavlink_msg_attitude_get_yaw(&msg)));
                     //if (uav_heading >= 180 ) uav_heading = -360+uav_heading; //convert from 0-360 to -180/180°
                 }
                 break;

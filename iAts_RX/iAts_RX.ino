@@ -40,7 +40,7 @@ long PID;
 // double AccGain;
 int16_t _servo_tilt_must_move = -1;
 
-int softserial_delay = (int)round(10000000.0f / (BLUETOOTH_SERIAL_BAUDRATE)); // time to wait between each byte sent.
+int softserial_delay = (int)round(10000000.0f / (DIGITAL_SERIAL_BAUDRATE)); // time to wait between each byte sent.
 
 // uint16_t last_course;
 // unsigned long airplane_pos_time;
@@ -68,6 +68,11 @@ void setup()
 	pinMode(LED_DIGITAL_PIN, OUTPUT);
 	pinMode(LED_SERIAL_PIN, OUTPUT);
 	pinMode(LED_ENCODE_PIN, OUTPUT);
+	pinMode(EN_33V_PIN, OUTPUT);
+
+	/* 激活3.3V稳压模块 */
+	digitalWrite(EN_33V_PIN, HIGH);
+	delay(100);
 
 	/* 初始化一些变量 */
 	tracker.mode = 1;
@@ -137,12 +142,12 @@ void setup()
 	initServos(&TParam);
 	/* ------------------------------------------ */
 
-	/* 蓝牙串口 */
-	digitalSerial.begin(BLUETOOTH_SERIAL_BAUDRATE);
+	/* 软串口--接收AD转换后的数字信号 */
+	digitalSerial.begin(DIGITAL_SERIAL_BAUDRATE);
 	/* ------------------------------------------ */
 
-	/* 远端GPS信号串口 */
-	Serial.begin(DIGITAL_SERIAL_BAUDRATE);
+	/* 物理串口--链接蓝牙模块 */
+	Serial.begin(PHYSICAL_SERIAL_BAUDRATE);
 	/* ------------------------------------------ */
 
 	TParam.pid_divider = 15;
@@ -162,11 +167,16 @@ void loop()
 	digitalWrite(LED_ENCODE_PIN, LOW);
 	digitalWrite(LED_SERIAL_PIN, LOW);
 
-	if (Serial.available())
+	//if (Serial.available())
+	if (digitalSerial.available())
 	{
-		uint8_t c = Serial.read();
+		//uint8_t c = Serial.read();
+		uint8_t c = digitalSerial.read();
+		//digitalSerial.write(c);
 
 		if (encodeTargetData(c) && HAS_ALT && HAS_FIX) digitalWrite(LED_DIGITAL_PIN, HIGH);
+
+		digitalWrite(LED_DIGITAL_PIN, HIGH);
 
 		// else if (tracker.mode == TRACKER_MODE_DEBUG)
 		// {
@@ -207,9 +217,11 @@ void loop()
 		// }
 	}
 
-	if (digitalSerial.available())
+	//if (digitalSerial.available())
+	if (Serial.available())
 	{
-		uint8_t c = digitalSerial.read();
+		//uint8_t c = digitalSerial.read();
+		uint8_t c = Serial.read();
 		if (encodeTrackerData(c))
 			digitalWrite(LED_ENCODE_PIN, HIGH);
 	}
@@ -447,10 +459,11 @@ boolean sendToBluetooth()
 	// {
 	// Serial.print(p_send_data[send_len - send_index], HEX);
 	//Serial.print(" ");
-	if (digitalSerial.write(p_send_data[send_len - send_index]) == 0)
+	//if (digitalSerial.write(p_send_data[send_len - send_index]) == 0)
+	if (Serial.write(p_send_data[send_len - send_index]) == 0)
 	{
 		//buffer is full, flush & retry.
-		digitalSerial.flush();
+		Serial.flush();
 		byte_dropped = true;
 		if (millis() - frame_timer >= 100)
 		{

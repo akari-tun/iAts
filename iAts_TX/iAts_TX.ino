@@ -139,6 +139,8 @@ bool get_telemetry()
   }
 
   read_mavlink();
+
+  if (uav_fix_type == 0x03) gps_ready = true;
 #endif
 
 #if defined(PROTOCOL_NMEA) || defined(PROTOCOL_UBLOX)
