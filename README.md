@@ -15,6 +15,12 @@ Arduino自动跟踪云台
 4. 与手机APP通讯，将飞机位置数据通过APP传到手机（使用自定义TLV格式的协议）
 5. 手机APP上显示飞机的位置
 
+## APP
+
+[iAts_app](https://github.com/akari-tun/iAts_app) 可以对云台进行调参与跟踪飞机位置。
+
+发布版本：
+[release v1.0.0-perview](https://github.com/akari-tun/iAts_app/releases/download/1.0.0-perview/iAts_app_V1.0.0-perview.apk)
 ## 特点
 
 - 低成本，基于328p芯片运行，可以直接使用[MWC MultiWii SE v2.6](https://s.taobao.com/search?q=MWC+MultiWii+SE+v2.6&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20181117&ie=utf8)飞控板，或是使用[Arduino Pro Mini](https://store.arduino.cc/usa/arduino-pro-mini)+[HMC5883模块](https://s.taobao.com/search?q=HMC5883L&commend=all&ssid=s5-e&search_type=mall&sourceId=tb.index&area=c2c&spm=a1z02.1.6856637.d4910789)/[QMC5883模块](https://s.taobao.com/search?q=QMC5883&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20181116&ie=utf8)+[MPU6050模块](https://s.taobao.com/search?q=MPU6050&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20181116&ie=utf8)进行构建。
