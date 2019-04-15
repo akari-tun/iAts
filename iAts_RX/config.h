@@ -6,8 +6,8 @@
 //#define DEBUG
 //#define TELEMETRY_DEBUG
 
-#define PHYSICAL_SERIAL_BAUDRATE 57600         // 物理串口--链接蓝牙模块 
-#define DIGITAL_SERIAL_BAUDRATE 1200           // 软串口--接收AD转换后的数字信号
+#define PHYSICAL_SERIAL_BAUDRATE 1200         // 物理串口--链接蓝牙模块 
+#define DIGITAL_SERIAL_BAUDRATE 38400          // 软串口--接收AD转换后的数字信号
 
 /* #### 罗盘类型 ####
  *

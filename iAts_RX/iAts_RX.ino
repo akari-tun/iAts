@@ -579,8 +579,7 @@ void calculatePID(void)
 	}
 
 	PID = TParam.pid_p * Error[0] + index * TParam.pid_i * Accumulator + TParam.pid_d * (Error[0] - Error[10]);
-	if (TParam.pid_divider > 0)
-		PID = PID >> TParam.pid_divider;
+	PID = PID >> TParam.pid_divider;
 
 	if (PID >= 500)
 		PID = 500;
